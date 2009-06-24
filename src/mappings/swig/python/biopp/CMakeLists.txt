@@ -13,6 +13,7 @@ ENDIF(NOT BUILD_LIBS)
 
 # SET (USE_ZLIB TRUE)
 
+INCLUDE_DIRECTORIES("${MAP_ROOT}/contrib/biopp/utils/Utils")
 SET (USE_SWIG_INCLUDEPATH "${MAP_ROOT}/contrib/biopp/utils/Utils")
 SET (USE_INCLUDEPATH utils/Utils)
 

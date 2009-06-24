@@ -1,3 +1,3 @@
 %module biopp
 
-%include BppString.h
+%include BppString.i

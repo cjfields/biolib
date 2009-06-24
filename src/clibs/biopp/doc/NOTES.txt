@@ -95,3 +95,37 @@ This resulted in:
 
 it appears to have trouble with the std::string definition.
 
+After some trials I have a .i file looking like:
+
+  %{
+    /* The following sections ends in the .cxx file */
+    using namespace std;   /* Make sure the STL is used */
+    #include <Clonable.h>
+    #include <BppString.h>
+  %}
+
+  /* Below the actual SWIG inputs */
+  /* Use STL definitions of swig in /usr/share/swig */
+  %include std_string.i
+  using namespace std;
+  %include <BppString.h>
+
+And set SWIG to parse the include files in:
+
+SET (USE_SWIG_INCLUDEPATH "${MAP_ROOT}/contrib/biopp/utils/Utils;-I/usr/include/
+c++/4.3;-I/usr/include/c++/4.3/i486-linux-gnu;-I/usr/include;-I/usr/include/linu
+x")
+
+using
+
+SET(USE_SWIG_INCLUDEALL TRUE)
+
+Now a lot is parsed. However there are two remaining problems. First,
+above include paths are hard coded (Pjotr fix), second the C++
+#include_next directive is giving problems with SWIG. Resulting in
+the following error:
+
+  /usr/include/c++/4.3/cstddef:48: Error: Unable to find '_next'
+
+I think we need to work around this.
+

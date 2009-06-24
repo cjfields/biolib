@@ -41,4 +41,10 @@ libbiolib_biopp-0.0.5.so, where the version number reflects the
 biolib repository VERSION.
 
 
+== Creating Python bindings ==
+
+The Python mapping happens in ./src/mappings/swig/python/biopp. Key
+is the python_biopp.i file, which includes all the others.
+
+
 

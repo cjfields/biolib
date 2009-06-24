@@ -9,6 +9,7 @@ Makefile
 *.log
 *.swp
 *.status
+*~
 Makevars
 svn.ignore
 cmake_install.cmake

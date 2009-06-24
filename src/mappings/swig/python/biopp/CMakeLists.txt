@@ -14,9 +14,10 @@ ENDIF(NOT BUILD_LIBS)
 # SET (USE_ZLIB TRUE)
 
 INCLUDE_DIRECTORIES("${MAP_ROOT}/contrib/biopp/utils/Utils")
-SET (USE_SWIG_INCLUDEPATH "${MAP_ROOT}/contrib/biopp/utils/Utils")
+SET (USE_SWIG_INCLUDEPATH "${MAP_ROOT}/contrib/biopp/utils/Utils;-I/usr/include/c++/4.3;-I/usr/include/c++/4.3/i486-linux-gnu;-I/usr/include;-I/usr/include/linux")
 SET (USE_INCLUDEPATH utils/Utils)
 
+SET(USE_SWIG_INCLUDEALL TRUE)
 SET(CMAKE_LIBRARY_OUTPUT_DIRECTORY biolib)
 
 FIND_PACKAGE(MapPython REQUIRED)

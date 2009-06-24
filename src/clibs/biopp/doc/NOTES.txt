@@ -1,0 +1,44 @@
+= Bio++ =
+
+Notes on compiling the Bio++ modules in the Biolib framework.
+
+
+== Check-out the biopp git submodule ==
+
+The submodules are defined in ./.gitmodules. There should be an entry
+like:
+
+  [submodule "contrib/biopp"]
+        path = contrib/biopp
+        url = git://github.com/pjotrp/biopp.git
+
+and another for the cmake modules:
+
+  [submodule "tools/cmake-support"]
+        path = tools/cmake-support
+        url = git://github.com/pjotrp/cmake-support.git
+
+In the root do:
+
+  git submodule init
+  git submodule update
+
+And the biopp sub-repository should be in ./contrib/biopp
+
+
+== Building the C++ libraries ==
+
+The control files for building the Bio++ C libraries are in
+./src/clibs/biopp/
+
+  cd ./src/clibs/biopp/src/
+  rm CMakeCache.txt ; cmake . ; make 
+ 
+should build a shared library in ./src/clibs/biopp/build. This is the
+library we link against. (Note: As Bio++ has namespaces we can build one
+single .so file). It is named something like
+libbiolib_biopp-0.0.5.so, where the version number reflects the
+biolib repository VERSION.
+
+
+
